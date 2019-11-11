@@ -100,8 +100,6 @@
       var tableOfContents = d.querySelector('#table-of-contents');
           headings = Array.prototype.slice.call(d.querySelectorAll('h2'));
 
-      console.log(headings);
-
       var createLink = function(element) {
         return '<li><a href="./#' + element.id + '">' + element.textContent + '</a></li>';
       };
