@@ -104,9 +104,11 @@
         return '<li><a href="./#' + element.id + '">' + element.textContent + '</a></li>';
       };
 
-      tableOfContents.innerHTML = '<nav><ul>' +
-                                    headings.map(createLink).join('') +
-                                  '</ul></nav>';
+      if (headings.length > 0) {
+        tableOfContents.innerHTML = '<nav><ul>' +
+                                      headings.map(createLink).join('') +
+                                    '</ul></nav>';
+      }
     })(document);
   </script>
 </body>
