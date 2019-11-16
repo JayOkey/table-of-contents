@@ -101,12 +101,11 @@
           headings = Array.prototype.slice.call(d.querySelectorAll('h2'));
 
       var createID = function(element) {
-        var id = element.textContent.toLowerCase().replace(/ /gi, '-');
-        element.setAttribute('id', id);
+        element.id = element.textContent.replace(/[^a-z0-9]+/gi, '-');
       };
 
       var createLink = function(element) {
-        if (!element.id) {
+        if (element.id.length < 1) {
           createID(element);
         }
         return '<li><a href="./#' + element.id + '">' + element.textContent + '</a></li>';
