@@ -17,7 +17,7 @@
 
   <div id="table-of-contents" aria-live="polite"></div>
 
-  <h2 id="cat-o-nine-tails">Cat O'Nine Tails</h2>
+  <h2>Cat O'Nine Tails</h2>
 
   <p>Cat o'nine tails Pieces of Eight swab carouser tackle. Pink hornswaggle gabion Sea Legs Davy Jones' Locker.</p>
 
@@ -27,13 +27,13 @@
 
   <p>Dead men tell no tales topmast Sail ho Davy Jones' Locker chantey. Wherry fluke pillage rope's end brig.</p>
 
-  <h4 id="privateer">Privateer</h4>
+  <h4>Privateer</h4>
 
   <p>Tack topgallant draft line flogging. Maroon overhaul grog blossom Privateer main sheet.</p>
 
   <p>Provost me cackle fruit Corsair Cat o'nine tails. Hempen halter Davy Jones' Locker clipper bring a spring upon her cable run a shot across the bow.</p>
 
-  <h2 id="ahoy">Ahoy</h2>
+  <h2>Ahoy</h2>
 
   <p>Booty squiffy wench overhaul ahoy. Parrel Pirate Round long clothes long boat come about.</p>
 
@@ -61,7 +61,7 @@
 
   <p>Holystone bring a spring upon her cable grog blossom deadlights league. Lanyard gabion reef sails booty gaff.</p>
 
-  <h4 id="sea-legs">Sea Legs</h4>
+  <h4>Sea Legs</h4>
 
   <p>Sea Legs to go on account skysail Yellow Jack heave down. Spanker heave down yawl starboard barque.</p>
 
@@ -79,7 +79,7 @@
 
   <p>Sutler Davy Jones' Locker ahoy walk the plank lugger. Jolly Roger matey hornswaggle Privateer marooned.</p>
 
-  <h2 id="davy-jones-locker">Davy Jones' Locker</h2>
+  <h2>Davy Jones' Locker</h2>
 
   <p>Davy Jones' Locker jib trysail bowsprit heave down. Transom square-rigged clipper Jack Ketch chandler.</p>
 
@@ -100,7 +100,15 @@
       var tableOfContents = d.querySelector('#table-of-contents');
           headings = Array.prototype.slice.call(d.querySelectorAll('h2'));
 
+      var createID = function(element) {
+        var id = element.textContent.toLowerCase().replace(/ /gi, '-');
+        element.setAttribute('id', id);
+      };
+
       var createLink = function(element) {
+        if (!element.id) {
+          createID(element);
+        }
         return '<li><a href="./#' + element.id + '">' + element.textContent + '</a></li>';
       };
 
